@@ -9,7 +9,7 @@
 <h2> Error in Getting Data from API. Try Again</h2>
 {% else %}
 <div class="jumbotron {{ category_color }}">
-    <h1 class="display-4">Air Quality Parameter for : {{api.0.ReportingArea}}</h1>
+    <h2 class="display-6">Air Quality Parameter for : {{api.0.ReportingArea}}</h2>
     <p class="display-8">Date: {{api.0.DateObserved}}</p>
     <p class="lead">
         Air Quality Parameter {{api.0.ParameterName}} : {{api.0.AQI}} ({{api.0.Category.Name}})<br />
