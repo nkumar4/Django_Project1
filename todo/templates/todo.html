@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}ToDo-App {% endblock %}
+
+{% block content %}
+
+<H1> This is TODO App Page!! </H1>
+<!--This for is to receive entried for new to-do list items-->
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="label">Enter To-Do Action Item</label>
+        <input type="search" class="form-control" id="todoinput" aria-describedby="emailHelp" name="item">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissable" role="alert">
+    <button class="close" data-dismiss="alert"> <small><sup> x </sup></small></button>
+    {{ message}}
+</div>
+{% endfor %}
+{% endif %}
+
+<br />
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">To-Do Item List</th>
+            <th scope="col">Current Status</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for things in all_items %}
+        {% if things.completed %}
+        <tr class="table-success">
+            <td class="stricker"><a href="{% url 'edit' things.id %}">{{ things.item }}</a></td>
+            <td>
+                <a href="{% url 'uncrossed' things.id %}">Completed</a>
+            </td>
+            <td><a href="{% url 'delete' things.id %}">Delete</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td><a href="{% url 'edit' things.id %}">{{ things.item }}</a></td>
+            <td>
+                <a href="{% url 'crossed' things.id %}">Pending</a>
+            </td>
+            </td>
+            <td><a href="{% url 'delete' things.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

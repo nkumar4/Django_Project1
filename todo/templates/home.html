@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}wLook-App {% endblock %}
+
+{% block content %}
+
+
+<br />
+{% if api %}
+{% if api == "Error in api" %}
+<h2> Error in Getting Data from API. Try Again</h2>
+{% else %}
+<div class="jumbotron {{ category_color }}">
+    <h2 class="display-6">Air Quality Parameter for : {{api.0.ReportingArea}}</h2>
+    <p class="display-8">Date: {{api.0.DateObserved}}</p>
+    <p class="lead">
+        Air Quality Parameter {{api.0.ParameterName}} : {{api.0.AQI}} ({{api.0.Category.Name}})<br />
+        Air Quality Parameter {{api.1.ParameterName}} : {{api.1.AQI}} ({{api.1.Category.Name}})<br />
+        Air Quality Parameter {{api.2.ParameterName}} : {{api.2.AQI}} ({{api.2.Category.Name}})<br />
+    </p>
+    <!-- <hr class="my-4">
+     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
+    <p> {{ category_description }} </p>
+
+</div>
+
+{% endif %}
+{% endif %}
+{% endblock %}

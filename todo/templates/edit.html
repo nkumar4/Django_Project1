@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}ToDo-App | Edit Entry {% endblock %}
+
+{% block content %}
+{% if edit_item %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="label">Edit To-do Action Item</label>
+        <input type="search" class="form-control" placeholder="{{ edit_item.item }}" value="{{ edit_item.item }}"
+            aria-labely="search" name="item">
+        <input type="hidden" value="{{ edit_item.complete}}" name="completed">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endif %}
+
+{% endblock %}
