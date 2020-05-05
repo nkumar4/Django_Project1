@@ -1,0 +1,15 @@
+{
+    "editor.cursorStyle": "block",
+    "editor.wordWrap": "on",
+    "editor.codeActionsOnSave": null,
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.formatOnPaste": true,
+    "files.autoSave": "afterDelay",
+    "bracket-pair-colorizer-2.colors": [
+    
+        "Gold",
+        "Orchid",
+        "LightSkyBlue"
+    ],
+    "editor.fontFamily": "Roboto, Consolas, 'Courier New', monospace"
+}

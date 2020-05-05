@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'wLook',
     'todo',
     'stocks',
+    'mathfilters',
+    'rest_framework',
+    'courses',
 ]
 
 MIDDLEWARE = [

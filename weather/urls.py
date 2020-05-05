@@ -7,4 +7,5 @@ urlpatterns = [
     path('', include('wLook.urls')),
     path('', include('todo.urls')),
     path('', include('stocks.urls')),
+    path('', include('courses.urls')),
 ]

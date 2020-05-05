@@ -5,7 +5,8 @@ from . import views
 
 urlpatterns = [
     path('stocks.html', views.stocks, name="stocks"),
-    #path('delete/<list_id>', views.delete, name="delete"),
+    path('portfolio.html', views.portfolio, name="portfolio"),
+    path('deletestock/<id>', views.deletestock, name="deletestock"),
     #path('crossed/<list_id>', views.crossed, name="crossed"),
     #path('uncrossed/<list_id>', views.uncrossed, name="uncrossed"),
     #path('edit/<list_id>', views.edit, name="edit"),

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<H2>Portfolio Webpage!! </H2>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="label">Enter New Stock Ticker to add to the Portfolio</label>
+        <input type="search" class="form-control" id="todoinput" aria-describedby="emailHelp" name="ticker">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissable" role="alert">
+    <button class="close" data-dismiss="alert"> <small><sup> x </sup></small></button>
+    {{ message}}
+</div>
+{% endfor %}
+{% endif %}
+<br/>
+
+List of stocks in portofolio are as follows:
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Company Name</th>
+            <th scope="col">Company Ticker</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for things in all_companies %}
+        <tr>
+            <td>{{ things.co_name }}</a></td>
+            <td>{{ things.ticker }}</a></td>
+            <td><a href="{% url 'deletestock' things.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+
+<br />
+
+
+{% endblock %}

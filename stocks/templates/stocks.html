@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load mathfilters %}
+
+{% block content %}
+
+{% if api %}
+    {% if api == "Error in api" %} 
+        There was a problem with ticker symbol 
+    {%else %}
+        <h1>Company: {{api.companyName}}</h1>
+        <br>Ticker: {{api.symbol}}<br/>
+        Latest Price: $ {{api.latestPrice}}<br/>
+        Previous Close: $ {{api.previousClose}}<br/>
+        P/E Ratio: {{api.peRatio}}<br/>
+        Market Cap: $ {{api.marketCap|div:1000000000}} Bn <br/>
+        Chane (ytd): {{api.ytdChange|mul:100}} % <br/>
+        <!--{% for key, value in api.items %}
+            {{key}}: {{ value }}<br /> 
+        {% endfor %}--->
+    {% endif %}
+    {% else %} 
+        Nothing to print yet!!
+    {% endif %}
+
+{% endblock %}
